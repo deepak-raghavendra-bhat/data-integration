@@ -1,14 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://wadl.dev.java.net/2009/02">
-   <doc title="RestReference">RestReference</doc>
+   <doc title="RestService">RestService</doc>
    <resources>
-      <resource path="/hello-soa">
-         <method name="GET" soa:name="hello-soa">
-            <request/>
-            <response>
+      <resource path="/test">
+         <method name="GET" soa:name="test">
+            <request>
+               <param name="msg" style="query" type="xsd:string"/>
+            </request>
+            <response status="200">
                <representation mediaType="text/plain"/>
             </response>
-            <response>
+            <response status="500">
                <representation mediaType="text/plain"/>
             </response>
          </method>

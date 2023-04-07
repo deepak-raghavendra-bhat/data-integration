@@ -4,7 +4,7 @@
    <annotationfile/>
    <iconize/>
    <partnerlink_locations>
-      <partnerlink name="RestReference" x="11" y="187" side="left"/>
+      <partnerlink name="RestService" x="15" y="187" side="left"/>
    </partnerlink_locations>
    <graph_layout viewport="0,0,1163,537" show_swimlanes="true">
       <layout_item collapsed="false" xpath="/process" type="process" showhandlers="true"/>

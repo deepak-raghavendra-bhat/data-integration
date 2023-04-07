@@ -11,14 +11,22 @@
            xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy"
            xmlns:ui="http://xmlns.oracle.com/soa/designer/"
            xmlns:sca-ext="http://xmlns.oracle.com/sca/1.0-ext">
+  <service name="RestService">
+    <interface.wadl interface="WADLs/RestService.wadl"/>
+    <binding.rest config="WADLs/RestService.wadl"/>
+  </service>
   <property name="productVersion" type="xs:string" many="false">12.2.1.4.0.190828</property>
   <property name="compositeID" type="xs:string" many="false">51773be1-4acb-4010-a559-5b79645f88cf</property>
   <component name="TestBPELProcess" version="2.0">
     <implementation.bpel src="BPEL/TestBPELProcess.bpel"/>
-    <componentType/>
+    <componentType>
+      <service name="RestService">
+        <interface.wadl interface="WADLs/RestService.wadl"/>
+      </service>
+    </componentType>
   </component>
-  <reference name="RestReference">
-    <interface.wadl interface="WADLs/RestReference.wadl"/>
-    <binding.rest config="WADLs/RestReference.wadl" location="http://&lt;host>:&lt;port>"/>
-  </reference>
+  <wire>
+    <source.uri>RestService</source.uri>
+    <target.uri>TestBPELProcess/RestService</target.uri>
+  </wire>
 </composite>

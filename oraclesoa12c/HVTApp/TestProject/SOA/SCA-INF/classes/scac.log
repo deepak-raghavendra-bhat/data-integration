@@ -1,20 +1,20 @@
 SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-2023-04-06 22:44:37.435/1.311 Oracle Coherence 12.2.1.4.0 <Info> (thread=main, member=n/a): Loaded operational configuration from "jar:file:/C:/softwares_dee_learning/Oracle/Oracle_SOA12/coherence/lib/coherence.jar!/tangosol-coherence.xml"
-2023-04-06 22:44:37.460/1.336 Oracle Coherence 12.2.1.4.0 <Info> (thread=main, member=n/a): Loaded operational overrides from "jar:file:/C:/softwares_dee_learning/Oracle/Oracle_SOA12/coherence/lib/coherence.jar!/tangosol-coherence-override-dev.xml"
-2023-04-06 22:44:37.462/1.338 Oracle Coherence 12.2.1.4.0 <Info> (thread=main, member=n/a): Optional configuration override "/tangosol-coherence-override.xml" is not specified
-2023-04-06 22:44:37.465/1.341 Oracle Coherence 12.2.1.4.0 <Info> (thread=main, member=n/a): Optional configuration override "cache-factory-config.xml" is not specified
-2023-04-06 22:44:37.467/1.342 Oracle Coherence 12.2.1.4.0 <Info> (thread=main, member=n/a): Optional configuration override "cache-factory-builder-config.xml" is not specified
-2023-04-06 22:44:37.469/1.344 Oracle Coherence 12.2.1.4.0 <Info> (thread=main, member=n/a): Optional configuration override "/custom-mbeans.xml" is not specified
+2023-04-06 23:19:59.317/1.241 Oracle Coherence 12.2.1.4.0 <Info> (thread=main, member=n/a): Loaded operational configuration from "jar:file:/C:/softwares_dee_learning/Oracle/Oracle_SOA12/coherence/lib/coherence.jar!/tangosol-coherence.xml"
+2023-04-06 23:19:59.342/1.265 Oracle Coherence 12.2.1.4.0 <Info> (thread=main, member=n/a): Loaded operational overrides from "jar:file:/C:/softwares_dee_learning/Oracle/Oracle_SOA12/coherence/lib/coherence.jar!/tangosol-coherence-override-dev.xml"
+2023-04-06 23:19:59.344/1.267 Oracle Coherence 12.2.1.4.0 <Info> (thread=main, member=n/a): Optional configuration override "/tangosol-coherence-override.xml" is not specified
+2023-04-06 23:19:59.346/1.270 Oracle Coherence 12.2.1.4.0 <Info> (thread=main, member=n/a): Optional configuration override "cache-factory-config.xml" is not specified
+2023-04-06 23:19:59.348/1.271 Oracle Coherence 12.2.1.4.0 <Info> (thread=main, member=n/a): Optional configuration override "cache-factory-builder-config.xml" is not specified
+2023-04-06 23:19:59.349/1.272 Oracle Coherence 12.2.1.4.0 <Info> (thread=main, member=n/a): Optional configuration override "/custom-mbeans.xml" is not specified
 
 Oracle Coherence Version 12.2.1.4.0 Build 74888
  Grid Edition: Development mode
 Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
 
-2023-04-06 22:44:38.585/2.461 Oracle Coherence GE 12.2.1.4.0 <Info> (thread=main, member=n/a): The cluster name has not been configured, a value of "deepa's cluster" has been automatically generated
-2023-04-06 22:44:39.625/3.499 Oracle Coherence GE 12.2.1.4.0 <Info> (thread=main, member=n/a): Created cache factory com.tangosol.net.ExtensibleConfigurableCacheFactory
-Apr 06, 2023 10:44:39 PM oracle.soa.scac.ValidateComposite loadWSDLs
+2023-04-06 23:20:00.491/2.415 Oracle Coherence GE 12.2.1.4.0 <Info> (thread=main, member=n/a): The cluster name has not been configured, a value of "deepa's cluster" has been automatically generated
+2023-04-06 23:20:01.515/3.439 Oracle Coherence GE 12.2.1.4.0 <Info> (thread=main, member=n/a): Created cache factory com.tangosol.net.ExtensibleConfigurableCacheFactory
+Apr 06, 2023 11:20:01 PM oracle.soa.scac.ValidateComposite loadWSDLs
 WARNING: Validating WSDLs from WSDLManager....  with option UseSoaInfraMds:false
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option PermSize=32m; support was removed in 8.0
 Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=256m; support was removed in 8.0
