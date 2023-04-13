@@ -1,0 +1,90 @@
+#soa suite
+docker run --name mysql-comms-8 -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=welcome1 -v mysql-volume:/opt/oracle/mysql mysql:latest
+
+docker run --name oracle-xe-213 -d -p 1521:1521 -e ORACLE_PASSWORD=welcome1 -v oracle-volume:/opt/oracle/oradata gvenzl/oracle-xe:21.3.0
+docker exec <container name|id> resetPassword <your password>
+-----------------------------------------------------------------------------------------
+
+#soadb
+docker network create devdomain-net
+
+docker build --build-arg DB_EDITION=ee -t oracle/database:12.2.0.1-ee .
+
+docker run -d -it --name devdomain-db --network devdomain-net oracle/database:12.2.0.1-ee
+
+docker logs -f devdomain-db
+
+docker ps
+
+docker exec -ti devdomain-db ./setPassword.sh welcome1
+
+#rcu
+
+docker run -it --rm --network devdomain-net --env DISPLAY=host.docker.internal:0.0 soaquickstart:12.2.1.4 oracle_common/bin/rcu
+
+#Create SOA Suite domain
+
+docker run --rm -ti --network devdomain-net --env DISPLAY=host.docker.internal:0.0 -v C:\soadocker_uprj:/u01/oracle/user_projects soaquickstart:12.2.1.4 oracle_common/common/bin/config.sh
+
+#create image for future reference
+
+docker stop devdomain-db
+
+docker commit devdomain-db
+
+docker image ls
+
+docker tag f6433b5c34d2 devdomain-db:12.2.0.1-ee 
+
+#Create Admin Container
+
+docker start devdomain-db
+
+docker container ls
+
+docker run --name devdomain-admin -ti -d -p 7001:7001 --network devdomain-net -v C:\soadocker_uprj:/u01/oracle/user_projects soaquickstart:12.2.1.4 user_projects/domains/dev_domain/bin/startWebLogic.sh
+
+#Create osb_server1 Container
+#Setting security properties to managed servers.
+
+#In host folder <local volume folder>\domains\dev_domain\servers , create new folders osb_server1 and soa_server1. Copy the security folder from AdminServer folder into the new 2 folders.
+
+docker run --name devdomain-osb_server1 -ti -d -p 7003:7003 --network devdomain-net -v C:\soadocker_uprj:/u01/oracle/user_projects soaquickstart:12.2.1.4 user_projects/domains/dev_domain/bin/startManagedWebLogic.sh osb_server1 devdomain-admin:7001
+
+#Create soa_server1 Container
+
+docker run --name devdomain-soa_server1 -ti -d -p 7004:7004 --network devdomain-net -v C:\soadocker_uprj:/u01/oracle/user_projects soaquickstart:12.2.1.4 user_projects/domains/dev_domain/bin/startManagedWebLogic.sh soa_server1 devdomain-admin:7001
+
+#Export images in a tar file
+
+docker save -o devdomain_images.tar devdomain-db:12.2.0.1-ee soaquickstart:12.2.1.4
+
+#Import images in a new machine
+
+docker load -i .\devdomain_images.tar
+
+#Recreate containers from images
+
+docker run -d -it --name devdomain-db --network devdomain-net devdomain-db:12.2.0.1-ee
+
+docker run --name devdomain-admin -ti -d -p 7001:7001 --network devdomain-net -v D:\user_projects:/u01/oracle/user_projects soaquickstart:12.2.1.4 user_projects/domains/dev_domain/bin/startWebLogic.sh
+
+docker run --name devdomain-osb_server1 -ti -d -p 7003:7003 --network devdomain-net -v D:\user_projects:/u01/oracle/user_projects soaquickstart:12.2.1.4 user_projects/domains/dev_domain/bin/startManagedWebLogic.sh osb_server1 devdomain-admin:7001
+
+docker run --name devdomain-soa_server1 -ti -d -p 7004:7004 --network devdomain-net -v D:\user_projects:/u01/oracle/user_projects soaquickstart:12.2.1.4 user_projects/domains/dev_domain/bin/startManagedWebLogic.sh soa_server1 devdomain-admin:7001
+
+docker run --name jdeveloper -ti --network devdomain-net -v D:\HostSharedFolder:/mnt/host --env DISPLAY=host.docker.internal:0.0 soaquickstart:12.2.1.4
+
+
+------------------------------------------------------------------
+
+#jenkins
+
+docker run --name jenkins-260 -d -p 8080:8080 -p 50000:50000 --restart=on-failure -v jenkins_home:/op/jenkins_home jenkins/jenkins:lts-jdk11
+
+
+
+# kafka confluent
+curl --silent --output docker-compose.yml https://raw.githubusercontent.com/confluentinc/cp-all-in-one/7.3.3-post/cp-all-in-one/docker-compose.yml
+
+docker-compose up -d
