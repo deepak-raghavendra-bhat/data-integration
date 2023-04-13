@@ -1,10 +1,21 @@
 #mysql
 docker run --name mysql-comms-8 -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=welcome1 -v mysql-volume:/opt/oracle/mysql mysql:latest
 
-#xe db
+#soa with db
 
-docker run --name oracle-xe-213 -d -p 1600:1600 -e ORACLE_PASSWORD=welcome1 -v oracle-volume:/opt/oracle/oradata gvenzl/oracle-xe:21.3.0
+docker network create --subnet=172.30.0.0/16 mysoanet
+docker run --net mysoanet -h xedb213 --ip 172.30.0.22 --name oracle-xe-213 -d -p 1521:1521 -e ORACLE_PASSWORD=welcome1 -v oracle-volume:/opt/oracle/oradata gvenzl/oracle-xe:21.3.0
+
+docker run --net mysoanet -h soadb12201 --ip 172.30.0.22 -d -it --name devdomain-db -p 1521:1521 -v oracle-volume:/opt/oracle/oradata oracle/database:12.2.0.1-ee
+docker exec -ti devdomain-db ./setPassword.sh welcome1
+
+docker run --name oracle-xe-213 -d -p 1521:1521 -e ORACLE_PASSWORD=welcome1 -v oracle-volume:/opt/oracle/oradata gvenzl/oracle-xe:21.3.0
 docker exec oracle-xe-213 resetPassword welcome1
+
+docker run --net mysoanet -h soa12214 --ip 172.30.0.25 --name soaenvironment -ti --env DISPLAY=host.docker.internal:0.0 -v C:\deepak\soa_projects_containers\shared:/mnt/host soaquickstart:12.2.1.4
+docker start soaenvironment
+docker run -it --rm --network mysoanet --env DISPLAY=host.docker.internal:0.0 soaquickstart:12.2.1.4 oracle_common/bin/rcu
+docker exec -it soaenvironment oracle_common/common/bin/config.sh
 -----------------------------------------------------------------------------------------
 
 #soadb
