@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. --><WL5G3N0:definitions xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:WL5G3N2="http://greet.webservice.moodykettle.com" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://greet.webservice.test.com" targetNamespace="http://greet.webservice.moodykettle.com">
+    <WL5G3N0:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://greet.webservice.test.com">
+            <xsd:element name="GreetRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="FirstName" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GreetResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="Greeting" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </WL5G3N0:types>
+    <WL5G3N0:message name="greetRequest">
+        <WL5G3N0:part name="parameters" element="WL5G3N1:GreetRequest"/>
+    </WL5G3N0:message>
+    <WL5G3N0:message name="greetResponse">
+        <WL5G3N0:part name="parameters" element="WL5G3N1:GreetResponse"/>
+    </WL5G3N0:message>
+    <WL5G3N0:portType name="Greeting">
+        <WL5G3N0:operation name="Greeting">
+            <WL5G3N0:input name="greetRequest" message="WL5G3N2:greetRequest"/>
+            <WL5G3N0:output name="greetResponse" message="WL5G3N2:greetResponse"/>
+        </WL5G3N0:operation>
+    </WL5G3N0:portType>
+    <WL5G3N0:binding name="GreetingBinding" type="WL5G3N2:Greeting">
+        <WL5G3N3:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <WL5G3N0:operation name="Greeting">
+            <WL5G3N3:operation/>
+            <WL5G3N0:input name="greetRequest">
+                <WL5G3N3:body use="literal"/>
+            </WL5G3N0:input>
+            <WL5G3N0:output name="greetResponse">
+                <WL5G3N3:body use="literal"/>
+            </WL5G3N0:output>
+        </WL5G3N0:operation>
+    </WL5G3N0:binding>
+</WL5G3N0:definitions>

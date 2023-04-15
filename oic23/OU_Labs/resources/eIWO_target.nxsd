@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd"
+        xmlns:tns="http://ichhcmpoc.oracle.com/ElectronicIncomeWithholdingOrdersFileData"
+        targetNamespace="http://ichhcmpoc.oracle.com/ElectronicIncomeWithholdingOrdersFileData"
+        elementFormDefault="qualified"
+        attributeFormDefault="unqualified"
+        nxsd:stream="chars"
+        nxsd:version="NXSD"
+        nxsd:encoding="US-ASCII"
+        nxsd:encodeLineTerminators="false"
+>
+   <element name="ElectronicIncomeWithholdingOrdersFileData">
+     <complexType>
+       <sequence>
+         <element ref="tns:ElectronicIncomeWithholdingOrdersLabel" minOccurs="0" maxOccurs="1" nxsd:startsWith="METADATA|ElectronicIncomeWithholdingOrders|" />
+         <element ref="tns:ElectronicIncomeWithholdingOrders" minOccurs="0" maxOccurs="unbounded" nxsd:startsWith="MERGE|ElectronicIncomeWithholdingOrders|" />
+		 <element ref="tns:ElectronicIncomeWithholdingOrderDetailsLabel" minOccurs="0" maxOccurs="1" nxsd:startsWith="METADATA|ElectronicIncomeWithholdingOrderDetails|" />
+         <element ref="tns:ElectronicIncomeWithholdingOrderDetails" minOccurs="0" maxOccurs="unbounded" nxsd:startsWith="MERGE|ElectronicIncomeWithholdingOrderDetails|" />
+      </sequence>
+     </complexType>
+   </element>
+   <!-- ElectronicIncomeWithholdingOrdersLabel -->
+   <element name="ElectronicIncomeWithholdingOrdersLabel">
+      <complexType>
+         <sequence>
+            <element name="InbdRecordIdLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+            <element name="SourceTypeLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+            <element name="EntityIdentifierLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+            <element name="FunctionalCategoryLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="RecordTypeLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="StartDateLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchCodeLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchDateLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="VendorCodeLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="CategoryCodeLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="RecordIdentifierLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="${eol}" />
+         </sequence>
+      </complexType>
+   </element>
+   <!-- ElectronicIncomeWithholdingOrders -->
+   <element name="ElectronicIncomeWithholdingOrders">
+      <complexType>
+         <sequence>
+            <element name="InbdRecordId" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+            <element name="SourceType" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+            <element name="EntityIdentifier" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+            <element name="FunctionalCategory" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="RecordType" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="StartDate" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchCode" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchDate" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="VendorCode" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="CategoryCode" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="RecordIdentifier" type="string" nxsd:style="terminated" nxsd:terminatedBy="${eol}" />
+         </sequence>
+      </complexType>
+   </element>
+     <!-- ElectronicIncomeWithholdingOrderDetailssLabel -->
+   <element name="ElectronicIncomeWithholdingOrderDetailsLabel">
+      <complexType>
+         <sequence>
+            <element name="InbdRecordIdLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="InbdRecordInfoIdLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="flexcontextidLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+            <element name="SourceTypeLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+            <element name="EntityIdentifierLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+            <element name="FunctionalCategoryLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="RecordTypeLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="StartDateLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchCodeLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="CategoryCodeLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="RecordIdentifierLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="IriInformationContextLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SourceSystemOwnerLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SourceSystemIdLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="GUIDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			
+			<element name="BatchControlNumber_EMPLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileControlNumber_EMPLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+						
+			<element name="Arrears12wkOverdueCode_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchControlNumber_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileControlNumber_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="IncomeWithholdingBiweeklyAmt_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="IncomeWithholdingMonthlyAmt_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="IncomeWithholdingSemimonthAmt_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="IncomeWithholdingWeeklyAmt_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="LumpSumPaymentAmount_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="ObligationOtherAmount_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="ObligationOtherDescText_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="ObligationOtherFreqCode_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="ObligationTotalAmount_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="ObligationTotalFreqCode_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportCurrentChildAmount_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportCurrentChildFreqCode_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportCurrentMedFreqCode_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportCurrentMedicalAmount_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportCurrentSpousalAmt_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportCurrentSpousalFreqCode_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportPastDueChildAmount_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportPastDueChildFreqCode_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportPastDueMedFreqCode_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportPastDueMedicalAmt_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportPastDueSpousalAmount_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportPastDueSpousalFreqCode_AMTLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			
+			<element name="BatchControlNumber_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child1BirthDate_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child1FirstName_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child1LastName_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child1MiddleName_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child1NameSuffix_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child2BirthDate_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child2FirstName_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child2LastName_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child2MiddleName_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child2NameSuffix_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child3BirthDate_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child3FirstName_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child3LastName_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child3MiddleName_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child3NameSuffix_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child4BirthDate_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child4FirstName_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child4LastName_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child4MiddleName_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child4NameSuffix_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child5BirthDate_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child5FirstName_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child5LastName_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child5MiddleName_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child5NameSuffix_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child6BirthDate_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child6FirstName_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child6LastName_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child6MiddleName_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child6NameSuffix_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileControlNumber_CHILDLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			
+			<element name="AntiDiscriminationProvText_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchControlNumber_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BeginWithholdingWithinDaysNbr_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="CaseIdentifier_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="DocumentActionCode_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="DocumentDate_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="DocumentImageText_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="DocumentTrackingNumber_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EINText_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployeeBirthDate_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployeeFirstName_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployeeLastName_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployeeMiddleName_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployeeSSN_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployeeStateCactEmailAddrText_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployeeStateContactFaxNbr_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployeeStateContactName_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployeeStateContactPhoneNbr_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployeeSuffix_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployerAddressfields_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployerName_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployerStateCactEmailAddrText_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployerStateContactAddress_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployerStateContactFaxNumber_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployerStateContactName_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployerStateContactPhoneNbr_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FIPSCode_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileControlNumber_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FirstErrorFieldName_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="GovernmentOfficialName_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="IncomeWithholdingCCPAPct_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="IncomeWithholdingStartDate_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="IssuingJurisdictionName_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="IssuingOfficialTitleText_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="IssuingStateTribeTerritoryNAME_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="IssuingTribunalName_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="MultipleErrorIndicator_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="ObligeeFirstName_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="ObligeeLastName_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="ObligeeMiddleName_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="ObligeeNameSuffix_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="OrderIdentifier_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="PayeeAddress_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="PayeeName_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="PayeeRemittanceFIPSCode_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="PenaltyLiabilityInfoText_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="RemittanceIdentifier_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SecondErrorFieldName_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SendEmployeeCopyInd_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SendPaymentWithinDaysNbr_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SpecificPayeeWithholdLimitsTxt_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="StateTribeTerritoryName_ORDERLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			
+			<element name="FileHeaderDocumentCode_FILELabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileTrailerErrorFieldNameText_FILELabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileHeaderControlNumber_FILELabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileHeaderStateFipsCode_FILELabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileName_FILELabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileHeaderEinText_FILELabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileHeaderPrimaryEinText_FILELabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileHeaderEiwoCreationTime_FILELabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileHeaderErrorFieldNameText_FILELabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileTrailerDocumentCode_FILELabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileTrailerControlNumber_FILELabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileHeaderEiwoCreationDate_FILELabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileTrailerBatchCount_FILELabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileTrailerRecordsCount_FILELabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileTrailerEmployerSentCount_FILELabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileTrailerStateSentCount_FILELabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			
+			<element name="BatchHeaderDocumentCode_BATCHLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchTrailerErrorFieldNameText_BATCHLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchHeaderControlNumber_BATCHLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchHeaderStateFipsCode_BATCHLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchHeaderEinText_BATCHLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchHeaderPrimaryEinText_BATCHLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchHeaderEiwoCreationTime_BATCHLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchHeaderErrorFieldNameText_BATCHLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchTrailerDocumentCode_BATCHLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchTrailerControlNumber_BATCHLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchHeaderEiwoCreationDate_BATCHLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchTrailerBatchCount_BATCHLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchTrailerRecordsCount_BATCHLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchTrailerEmployerSentCount_BATCHLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchTrailerStateSentCount_BATCHLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			
+			<element name="FileControlNumberProcessLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileControlNumberAckLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchControlNumberProcsssLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchControlNumberAckLabel" type="string" nxsd:style="terminated" nxsd:terminatedBy="${eol}" />
+         </sequence>
+      </complexType>
+   </element>
+    <!-- ElectronicIncomeWithholdingOrderDetails -->
+   <element name="ElectronicIncomeWithholdingOrderDetails">
+      <complexType>
+         <sequence>
+             <element name="InbdRecordId" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="InbdRecordInfoId" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="flexcontextid" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+            <element name="SourceType" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+            <element name="EntityIdentifier" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+            <element name="FunctionalCategory" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="RecordType" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="StartDate" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchCode" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="CategoryCode" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="RecordIdentifier" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="IriInformationContext" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SourceSystemOwner" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SourceSystemId" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="GUID" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			
+			<element name="BatchControlNumber_EMP" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileControlNumber_EMP" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+						
+			<element name="Arrears12wkOverdueCode_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchControlNumber_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileControlNumber_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="IncomeWithholdingBiweeklyAmt_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="IncomeWithholdingMonthlyAmt_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="IncomeWithholdingSemimonthAmt_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="IncomeWithholdingWeeklyAmt_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="LumpSumPaymentAmount_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="ObligationOtherAmount_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="ObligationOtherDescText_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="ObligationOtherFreqCode_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="ObligationTotalAmount_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="ObligationTotalFreqCode_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportCurrentChildAmount_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportCurrentChildFreqCode_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportCurrentMedFreqCode_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportCurrentMedicalAmount_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportCurrentSpousalAmt_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportCurrentSpousalFreqCode_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportPastDueChildAmount_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportPastDueChildFreqCode_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportPastDueMedFreqCode_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportPastDueMedicalAmt_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportPastDueSpousalAmount_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SupportPastDueSpousalFreqCode_AMT" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			
+			<element name="BatchControlNumber_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child1BirthDate_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child1FirstName_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child1LastName_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child1MiddleName_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child1NameSuffix_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child2BirthDate_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child2FirstName_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child2LastName_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child2MiddleName_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child2NameSuffix_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child3BirthDate_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child3FirstName_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child3LastName_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child3MiddleName_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child3NameSuffix_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child4BirthDate_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child4FirstName_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child4LastName_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child4MiddleName_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child4NameSuffix_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child5BirthDate_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child5FirstName_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child5LastName_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child5MiddleName_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child5NameSuffix_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child6BirthDate_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child6FirstName_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child6LastName_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child6MiddleName_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="Child6NameSuffix_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileControlNumber_CHILD" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			
+			<element name="AntiDiscriminationProvText_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchControlNumber_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BeginWithholdingWithinDaysNbr_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="CaseIdentifier_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="DocumentActionCode_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="DocumentDate_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="DocumentImageText_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="DocumentTrackingNumber_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EINText_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployeeBirthDate_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployeeFirstName_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployeeLastName_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployeeMiddleName_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployeeSSN_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployeeStateCactEmailAddrText_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployeeStateContactFaxNbr_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployeeStateContactName_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployeeStateContactPhoneNbr_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployeeSuffix_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployerAddressfields_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployerName_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployerStateCactEmailAddrText_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployerStateContactAddress_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployerStateContactFaxNumber_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployerStateContactName_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="EmployerStateContactPhoneNbr_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FIPSCode_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileControlNumber_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FirstErrorFieldName_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="GovernmentOfficialName_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="IncomeWithholdingCCPAPct_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="IncomeWithholdingStartDate_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="IssuingJurisdictionName_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="IssuingOfficialTitleText_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="IssuingStateTribeTerritoryNAME_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="IssuingTribunalName_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="MultipleErrorIndicator_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="ObligeeFirstName_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="ObligeeLastName_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="ObligeeMiddleName_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="ObligeeNameSuffix_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="OrderIdentifier_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="PayeeAddress_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="PayeeName_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="PayeeRemittanceFIPSCode_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="PenaltyLiabilityInfoText_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="RemittanceIdentifier_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SecondErrorFieldName_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SendEmployeeCopyInd_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SendPaymentWithinDaysNbr_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="SpecificPayeeWithholdLimitsTxt_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="StateTribeTerritoryName_ORDER" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			
+			<element name="FileHeaderDocumentCode_FILE" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileTrailerErrorFieldNameText_FILE" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileHeaderControlNumber_FILE" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileHeaderStateFipsCode_FILE" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileName_FILE" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileHeaderEinText_FILE" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileHeaderPrimaryEinText_FILE" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileHeaderEiwoCreationTime_FILE" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileHeaderErrorFieldNameText_FILE" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileTrailerDocumentCode_FILE" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileTrailerControlNumber_FILE" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileHeaderEiwoCreationDate_FILE" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileTrailerBatchCount_FILE" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileTrailerRecordsCount_FILE" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileTrailerEmployerSentCount_FILE" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileTrailerStateSentCount_FILE" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			
+			<element name="BatchHeaderDocumentCode_BATCH" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchTrailerErrorFieldNameText_BATCH" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchHeaderControlNumber_BATCH" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchHeaderStateFipsCode_BATCH" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchHeaderEinText_BATCH" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchHeaderPrimaryEinText_BATCH" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchHeaderEiwoCreationTime_BATCH" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchHeaderErrorFieldNameText_BATCH" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchTrailerDocumentCode_BATCH" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchTrailerControlNumber_BATCH" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchHeaderEiwoCreationDate_BATCH" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchTrailerBatchCount_BATCH" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchTrailerRecordsCount_BATCH" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchTrailerEmployerSentCount_BATCH" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchTrailerStateSentCount_BATCH" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			
+			<element name="FileControlNumberProcess" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="FileControlNumberAck" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchControlNumberProcsss" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="|" />
+			<element name="BatchControlNumberAck" type="string" minOccurs="0" nxsd:style="terminated" nxsd:terminatedBy="${eol}" />
+         </sequence>
+      </complexType>
+   </element>
+</schema>

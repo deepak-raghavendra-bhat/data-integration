@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. --><WL5G3N0:definitions xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://helloworld.webservice.moodykettle.com" targetNamespace="http://helloworld.webservice.moodykettle.com">
+    <WL5G3N0:types>
+        <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://helloworld.webservice.moodykettle.com" xmlns:intf="http://helloworld.webservice.moodykettle.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://helloworld.webservice.moodykettle.com">
+            <xsd:element name="sayHello">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="name" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="sayHelloResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="sayHelloReturn" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="visitTimestampReq">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="reqMsg" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="visitTimestampResp">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="respMsg" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </WL5G3N0:types>
+    <WL5G3N0:message name="sayHelloRequest">
+        <WL5G3N0:part name="parameters" element="WL5G3N1:sayHello"/>
+    </WL5G3N0:message>
+    <WL5G3N0:message name="sayHelloResponse">
+        <WL5G3N0:part name="parameters" element="WL5G3N1:sayHelloResponse"/>
+    </WL5G3N0:message>
+    <WL5G3N0:message name="visitTimestampReq">
+        <WL5G3N0:part name="parameters" element="WL5G3N1:visitTimestampReq"/>
+    </WL5G3N0:message>
+    <WL5G3N0:message name="visitTimestampResp">
+        <WL5G3N0:part name="parameters" element="WL5G3N1:visitTimestampResp"/>
+    </WL5G3N0:message>
+    <WL5G3N0:portType name="HelloWorld">
+        <WL5G3N0:operation name="sayHello">
+            <WL5G3N0:input name="sayHelloRequest" message="WL5G3N1:sayHelloRequest"/>
+            <WL5G3N0:output name="sayHelloResponse" message="WL5G3N1:sayHelloResponse"/>
+        </WL5G3N0:operation>
+        <WL5G3N0:operation name="visitTimestampDetails">
+            <WL5G3N0:input name="visitTimestampReq" message="WL5G3N1:visitTimestampReq"/>
+            <WL5G3N0:output name="visitTimestampResp" message="WL5G3N1:visitTimestampResp"/>
+        </WL5G3N0:operation>
+    </WL5G3N0:portType>
+    <WL5G3N0:binding name="HelloWorldBinding" type="WL5G3N1:HelloWorld">
+        <WL5G3N2:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <WL5G3N0:operation name="sayHello">
+            <WL5G3N2:operation/>
+            <WL5G3N0:input name="sayHelloRequest">
+                <WL5G3N2:body use="literal"/>
+            </WL5G3N0:input>
+            <WL5G3N0:output name="sayHelloResponse">
+                <WL5G3N2:body use="literal"/>
+            </WL5G3N0:output>
+        </WL5G3N0:operation>
+        <WL5G3N0:operation name="visitTimestampDetails">
+            <WL5G3N2:operation/>
+            <WL5G3N0:input name="visitTimestampReq">
+                <WL5G3N2:body use="literal"/>
+            </WL5G3N0:input>
+            <WL5G3N0:output name="visitTimestampResp">
+                <WL5G3N2:body use="literal"/>
+            </WL5G3N0:output>
+        </WL5G3N0:operation>
+    </WL5G3N0:binding>
+    <WL5G3N0:service name="HelloWorldService">
+        <WL5G3N0:documentation>OSB Service</WL5G3N0:documentation>
+        <WL5G3N0:port name="HelloWorldPort" binding="WL5G3N1:HelloWorldBinding">
+            <WL5G3N2:address location="https://jcs16-usoracle27187.java.us2.oraclecloudapps.com:443/HelloWorld/HelloWorldPort"/>
+        </WL5G3N0:port>
+    </WL5G3N0:service>
+</WL5G3N0:definitions>

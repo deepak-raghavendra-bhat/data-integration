@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd"
+        xmlns:tns="http://ichhcmpoc.oracle.com/ElectronicIncomeWithholdingOrdersTXTData"
+        targetNamespace="http://ichhcmpoc.oracle.com/ElectronicIncomeWithholdingOrdersTXTData"
+        elementFormDefault="qualified"
+        attributeFormDefault="unqualified"
+		nxsd:stream="chars"
+        nxsd:version="NXSD"
+        nxsd:encoding="US-ASCII"
+        nxsd:encodeLineTerminators="false"
+		nxsd:detectLoops="false">
+		
+<element name="EIWORoot">
+	<complexType>
+		<sequence>
+			<element ref="tns:DocumentFileHeader" minOccurs="1" maxOccurs="1" nxsd:startsWith="FHI" />
+			<element ref="tns:EIWOBatch" minOccurs="0" maxOccurs="unbounded" />
+			<element ref="tns:DocumentFileTrailer" minOccurs="1" maxOccurs="1" nxsd:startsWith="FTI" />
+		</sequence>
+	</complexType>
+</element>
+		
+<element name="DocumentFileHeader">
+	<complexType>
+		<sequence>
+			<element name="ControlNumber" type="string" nxsd:style="fixedLength" nxsd:length="22" />
+			<element name="StateLocatorCode" type="string" nxsd:style="fixedLength" nxsd:length="5" />
+			<element name="EINText" type="string" nxsd:style="fixedLength" nxsd:length="9" />
+			<element name="PrimaryEINText" type="string" nxsd:style="fixedLength" nxsd:length="9" />
+			<element name="CreationDate" type="string" nxsd:style="fixedLength" nxsd:length="8" />
+			<element name="CreationTime" type="string" nxsd:style="fixedLength" nxsd:length="6" />
+			<element name="ErrorFieldNameText" type="string" nxsd:style="fixedLength" nxsd:length="18" />
+			<element name="Filler" type="string" nxsd:style="terminated" nxsd:terminatedBy="${eol}" />
+		</sequence>
+	</complexType>
+</element>
+
+<element name="EIWOBatch">
+	<complexType>
+		<sequence>
+			<element ref="tns:DocumentBatchHeader" minOccurs="1" maxOccurs="1" nxsd:startsWith="BHI" />
+			<element ref="tns:EIWO" minOccurs="1" maxOccurs="unbounded" nxsd:startsWith="DTL" />
+			<element ref="tns:DocumentBatchTrailer" minOccurs="1" maxOccurs="1" nxsd:startsWith="BTI" />
+		</sequence>
+	</complexType>
+</element>
+
+<element name="DocumentFileTrailer">
+	<complexType>
+		<sequence>
+			<element name="ControlNumber" type="string" nxsd:style="fixedLength" nxsd:length="22" />
+			<element name="BatchCount" type="string" nxsd:style="fixedLength" nxsd:length="5" />
+			<element name="RecordCount" type="string" nxsd:style="fixedLength" nxsd:length="5" />
+			<element name="EmployerSentCount" type="string" nxsd:style="fixedLength" nxsd:length="5" />
+			<element name="StateSentCount" type="string" nxsd:style="fixedLength" nxsd:length="5" />
+			<element name="ErrorFieldNameText" type="string" nxsd:style="fixedLength" nxsd:length="18" />
+			<element name="Filler" type="string" nxsd:style="terminated" nxsd:terminatedBy="${eol}" />
+		</sequence>
+	</complexType>
+</element>
+
+<element name="DocumentBatchHeader">
+	<complexType>
+		<sequence>
+			<element name="ControlNumber" type="string" nxsd:style="fixedLength" nxsd:length="22" />
+			<element name="StateLocatorCode" type="string" nxsd:style="fixedLength" nxsd:length="5" />
+			<element name="EINText" type="string" nxsd:style="fixedLength" nxsd:length="9" />
+			<element name="PrimaryEINText" type="string" nxsd:style="fixedLength" nxsd:length="9" />
+			<element name="CreationDate" type="string" nxsd:style="fixedLength" nxsd:length="8" />
+			<element name="CreationTime" type="string" nxsd:style="fixedLength" nxsd:length="6" />
+			<element name="ErrorFieldNameText" type="string" nxsd:style="fixedLength" nxsd:length="18" />
+			<element name="Filler" type="string" nxsd:style="terminated" nxsd:terminatedBy="${eol}" />
+		</sequence>
+	</complexType>
+</element>
+
+<element name="EIWO">
+	<complexType>
+		<sequence>
+			<element name="Filler" type="string" nxsd:style="fixedLength" nxsd:length="3" />
+			<element name="DocumentActionCode" type="string" nxsd:style="fixedLength" nxsd:length="3" />
+			<element name="DocumentDate" type="string" nxsd:style="fixedLength" nxsd:length="8" />
+			<element name="SendingStateTribeTerritoryName" type="string" nxsd:style="fixedLength" nxsd:length="35" />
+			<element name="SendingJurisdictionName" type="string" nxsd:style="fixedLength" nxsd:length="35" />
+			<element name="CaseID" type="string" nxsd:style="fixedLength" nxsd:length="15" />
+			<element name="EmployerName" type="string" nxsd:style="fixedLength" nxsd:length="57" />
+			<element name="EmployerAddressLine1Text" type="string" nxsd:style="fixedLength" nxsd:length="25" />
+			<element name="EmployerAddressLine2Text" type="string" nxsd:style="fixedLength" nxsd:length="25" />
+			<element name="EmployerAddressCityName" type="string" nxsd:style="fixedLength" nxsd:length="22" />
+			<element name="EmployerAddressStateCode" type="string" nxsd:style="fixedLength" nxsd:length="2" />
+			<element name="EmployerAddressZIPCode" type="string" nxsd:style="fixedLength" nxsd:length="5" />
+			<element name="EmployerAddressExtZIPCode" type="string" nxsd:style="fixedLength" nxsd:length="4" />
+			<element name="EINText" type="string" nxsd:style="fixedLength" nxsd:length="9" />
+			<element name="EmployeeLastName" type="string" nxsd:style="fixedLength" nxsd:length="20" />
+			<element name="EmployeeFirstName" type="string" nxsd:style="fixedLength" nxsd:length="15" />
+			<element name="EmployeeMiddleName" type="string" nxsd:style="fixedLength" nxsd:length="15" />
+			<element name="EmployeeSuffix" type="string" nxsd:style="fixedLength" nxsd:length="4" />
+			<element name="EmployeeSSN" type="string" nxsd:style="fixedLength" nxsd:length="9" />
+			<element name="EmployeeBirthDate" type="string" nxsd:style="fixedLength" nxsd:length="8" />
+			<element name="ObligeeLastName" type="string" nxsd:style="fixedLength" nxsd:length="57" />
+			<element name="ObligeeFirstName" type="string" nxsd:style="fixedLength" nxsd:length="15" />
+			<element name="ObligeeMiddleName" type="string" nxsd:style="fixedLength" nxsd:length="15" />
+			<element name="ObligeeNameSuffix" type="string" nxsd:style="fixedLength" nxsd:length="4" />
+			<element name="IssuingTribunalName" type="string" nxsd:style="fixedLength" nxsd:length="35" />
+			<element name="SupportCurrentChildAmount" type="string" nxsd:style="fixedLength" nxsd:length="11" />
+			<element name="SupportCurrentChildFrequencyCode" type="string" nxsd:style="fixedLength" nxsd:length="1" />
+			<element name="SupportPastDueChildAmount" type="string" nxsd:style="fixedLength" nxsd:length="11" />
+			<element name="SupportPastDueChildFrequencyCode" type="string" nxsd:style="fixedLength" nxsd:length="1" />
+			<element name="SupportCurrentMedicalAmount" type="string" nxsd:style="fixedLength" nxsd:length="11" />
+			<element name="SupportCurrentMedicalFrequencyCode" type="string" nxsd:style="fixedLength" nxsd:length="1" />
+			<element name="SupportPastDueMedicalAmount" type="string" nxsd:style="fixedLength" nxsd:length="11" />
+			<element name="SupportPastDueMedicalFrequencyCode" type="string" nxsd:style="fixedLength" nxsd:length="1" />
+			<element name="SupportCurrentSpousalAmount" type="string" nxsd:style="fixedLength" nxsd:length="11" />
+			<element name="SupportCurrentSpousalFrequencyCode" type="string" nxsd:style="fixedLength" nxsd:length="1" />
+			<element name="SupportPastDueSpousalAmount" type="string" nxsd:style="fixedLength" nxsd:length="11" />
+			<element name="SupportPastDueSpousalFrequencyCode" type="string" nxsd:style="fixedLength" nxsd:length="1" />
+			<element name="ObligationOtherAmount" type="string" nxsd:style="fixedLength" nxsd:length="11" />
+			<element name="ObligationOtherFrequencyCode" type="string" nxsd:style="fixedLength" nxsd:length="1" />
+			<element name="ObligationOtherDescriptionText" type="string" nxsd:style="fixedLength" nxsd:length="35" />
+			<element name="ObligationTotalAmount" type="string" nxsd:style="fixedLength" nxsd:length="11" />
+			<element name="ObligationTotalFrequencyCode" type="string" nxsd:style="fixedLength" nxsd:length="1" />
+			<element name="Arrears12wkOverdueCode" type="string" nxsd:style="fixedLength" nxsd:length="1" />
+			<element name="IncomeWithholdingDeductionWeeklyAmount" type="string" nxsd:style="fixedLength" nxsd:length="11" />
+			<element name="IncomeWithholdingDeductionBi-WeeklyAmount" type="string" nxsd:style="fixedLength" nxsd:length="11" />
+			<element name="IncomeWithholdingSemimonthlyAmount" type="string" nxsd:style="fixedLength" nxsd:length="11" />
+			<element name="IncomeWithholdingMonthlyAmount" type="string" nxsd:style="fixedLength" nxsd:length="11" />
+			<element name="StateTribeTerritoryName" type="string" nxsd:style="fixedLength" nxsd:length="35" />
+			<element name="BeginWithholdingWithinDaysNumber" type="string" nxsd:style="fixedLength" nxsd:length="2" />
+			<element name="IncomeWithholdingStartDate" type="string" nxsd:style="fixedLength" nxsd:length="8" />
+			<element name="SendPaymentWithinDaysNumber" type="string" nxsd:style="fixedLength" nxsd:length="2" />
+			<element name="IncomeWithholdingCCPAPercentRate" type="string" nxsd:style="fixedLength" nxsd:length="2" />
+			<element name="PayeeName" type="string" nxsd:style="fixedLength" nxsd:length="57" />
+			<element name="PayeeAddressLine1Text" type="string" nxsd:style="fixedLength" nxsd:length="25" />
+			<element name="PayeeAddressLine2Text" type="string" nxsd:style="fixedLength" nxsd:length="25" />
+			<element name="PayeeAddressCityName" type="string" nxsd:style="fixedLength" nxsd:length="22" />
+			<element name="PayeeAddressStateCode" type="string" nxsd:style="fixedLength" nxsd:length="2" />
+			<element name="PayeeAddressZIPCode" type="string" nxsd:style="fixedLength" nxsd:length="5" />
+			<element name="PayeeAddressExtZIPCode" type="string" nxsd:style="fixedLength" nxsd:length="4" />
+			<element name="PayeeRemittanceLocatorCode" type="string" nxsd:style="fixedLength" nxsd:length="7" />
+			<element name="IssuingOfficialName" type="string" nxsd:style="fixedLength" nxsd:length="70" />
+			<element name="IssuingOfficialTitleText" type="string" nxsd:style="fixedLength" nxsd:length="50" />
+			<element name="Filler" type="string" nxsd:style="fixedLength" nxsd:length="1" />
+			<element name="SendEmployeeCopyIndicator" type="string" nxsd:style="fixedLength" nxsd:length="1" />
+			<element name="PenaltyLiabilityInfoText" type="string" nxsd:style="fixedLength" nxsd:length="160" />
+			<element name="Anti-discriminationProvisionsText" type="string" nxsd:style="fixedLength" nxsd:length="160" />
+			<element name="SupplementalInformation" type="string" nxsd:style="fixedLength" nxsd:length="160" />
+			<element name="EmployeeStateContactName" type="string" nxsd:style="fixedLength" nxsd:length="57" />
+			<element name="EmployeeStateContactPhoneNumber" type="string" nxsd:style="fixedLength" nxsd:length="10" />
+			<element name="EmployeeStateContactFaxNumber" type="string" nxsd:style="fixedLength" nxsd:length="10" />
+			<element name="EmployeeStateContactEmailAddressText" type="string" nxsd:style="fixedLength" nxsd:length="48" />
+			<element name="DocumentTrackingNumber" type="string" nxsd:style="fixedLength" nxsd:length="30" />
+			<element name="OrderID" type="string" nxsd:style="fixedLength" nxsd:length="30" />
+			<element name="EmployerStateContactName" type="string" nxsd:style="fixedLength" nxsd:length="57" />
+			<element name="EmployerStateContactAddressLine1Text" type="string" nxsd:style="fixedLength" nxsd:length="25" />
+			<element name="EmployerStateContactAddressLine2Text" type="string" nxsd:style="fixedLength" nxsd:length="25" />
+			<element name="EmployerStateContactAddressCityName" type="string" nxsd:style="fixedLength" nxsd:length="22" />
+			<element name="EmployerStateContactAddressStateCode" type="string" nxsd:style="fixedLength" nxsd:length="2" />
+			<element name="EmployerStateContactAddressZIPCode" type="string" nxsd:style="fixedLength" nxsd:length="5" />
+			<element name="EmployerStateContactAddressExtZIPCode" type="string" nxsd:style="fixedLength" nxsd:length="4" />
+			<element name="EmployerStateContactPhoneNumber" type="string" nxsd:style="fixedLength" nxsd:length="10" />
+			<element name="EmployerStateContactFaxNumber" type="string" nxsd:style="fixedLength" nxsd:length="10" />
+			<element name="EmployerStateContactEmailAddressText" type="string" nxsd:style="fixedLength" nxsd:length="48" />
+			<element name="Child1LastName" type="string" nxsd:style="fixedLength" nxsd:length="20" />
+			<element name="Child1FirstName" type="string" nxsd:style="fixedLength" nxsd:length="15" />
+			<element name="Child1MiddleName" type="string" nxsd:style="fixedLength" nxsd:length="15" />
+			<element name="Child1SuffixName" type="string" nxsd:style="fixedLength" nxsd:length="4" />
+			<element name="Child1BirthDate" type="string" nxsd:style="fixedLength" nxsd:length="8" />
+			<element name="Child2LastName" type="string" nxsd:style="fixedLength" nxsd:length="20" />
+			<element name="Child2FirstName" type="string" nxsd:style="fixedLength" nxsd:length="15" />
+			<element name="Child2MiddleName" type="string" nxsd:style="fixedLength" nxsd:length="15" />
+			<element name="Child2SuffixName" type="string" nxsd:style="fixedLength" nxsd:length="4" />
+			<element name="Child2BirthDate" type="string" nxsd:style="fixedLength" nxsd:length="8" />
+			<element name="Child3LastName" type="string" nxsd:style="fixedLength" nxsd:length="20" />
+			<element name="Child3FirstName" type="string" nxsd:style="fixedLength" nxsd:length="15" />
+			<element name="Child3MiddleName" type="string" nxsd:style="fixedLength" nxsd:length="15" />
+			<element name="Child3SuffixName" type="string" nxsd:style="fixedLength" nxsd:length="4" />
+			<element name="Child3BirthDate" type="string" nxsd:style="fixedLength" nxsd:length="8" />
+			<element name="Child4LastName" type="string" nxsd:style="fixedLength" nxsd:length="20" />
+			<element name="Child4FirstName" type="string" nxsd:style="fixedLength" nxsd:length="15" />
+			<element name="Child4MiddleName" type="string" nxsd:style="fixedLength" nxsd:length="15" />
+			<element name="Child4SuffixName" type="string" nxsd:style="fixedLength" nxsd:length="4" />
+			<element name="Child4BirthDate" type="string" nxsd:style="fixedLength" nxsd:length="8" />
+			<element name="Child5LastName" type="string" nxsd:style="fixedLength" nxsd:length="20" />
+			<element name="Child5FirstName" type="string" nxsd:style="fixedLength" nxsd:length="15" />
+			<element name="Child5MiddleName" type="string" nxsd:style="fixedLength" nxsd:length="15" />
+			<element name="Child5SuffixName" type="string" nxsd:style="fixedLength" nxsd:length="4" />
+			<element name="Child5BirthDate" type="string" nxsd:style="fixedLength" nxsd:length="8" />
+			<element name="Child6LastName" type="string" nxsd:style="fixedLength" nxsd:length="20" />
+			<element name="Child6FirstName" type="string" nxsd:style="fixedLength" nxsd:length="15" />
+			<element name="Child6MiddleName" type="string" nxsd:style="fixedLength" nxsd:length="15" />
+			<element name="Child6SuffixName" type="string" nxsd:style="fixedLength" nxsd:length="4" />
+			<element name="Child6BirthDate" type="string" nxsd:style="fixedLength" nxsd:length="8" />
+			<element name="LumpSumPaymentAmount" type="string" nxsd:style="fixedLength" nxsd:length="11" />
+			<element name="Filler" type="string" nxsd:style="fixedLength" nxsd:length="9" />
+			<element name="RemittanceIdentifier" type="string" nxsd:style="fixedLength" nxsd:length="20" />
+			<element name="DocumentImageText" type="string" nxsd:style="fixedLength" nxsd:length="25" />
+			<element name="FirstErrorFieldName" type="string" nxsd:style="fixedLength" nxsd:length="32" />
+			<element name="SecondErrorFieldName" type="string" nxsd:style="fixedLength" nxsd:length="32" />
+			<element name="MultipleErrorIndicator" type="string" nxsd:style="fixedLength" nxsd:length="1" />
+			<element name="Filler" type="string" nxsd:style="fixedLength" nxsd:length="87" />
+			<element name="LocatorCode" type="string" nxsd:style="terminated" nxsd:terminatedBy="${eol}" />
+		</sequence>
+	</complexType>
+</element>
+
+<element name="DocumentBatchTrailer">
+	<complexType>
+		<sequence>
+			<element name="ControlNumber" type="string" nxsd:style="fixedLength" nxsd:length="22" />
+			<element name="BatchCount" type="string" nxsd:style="fixedLength" nxsd:length="5" />
+			<element name="RecordCount" type="string" nxsd:style="fixedLength" nxsd:length="5" />
+			<element name="EmployerSentCount" type="string" nxsd:style="fixedLength" nxsd:length="5" />
+			<element name="StateSentCount" type="string" nxsd:style="fixedLength" nxsd:length="5" />
+			<element name="ErrorFieldNameText" type="string" nxsd:style="fixedLength" nxsd:length="18" />
+			<element name="Filler" type="string" nxsd:style="terminated" nxsd:terminatedBy="${eol}" />
+		</sequence>
+	</complexType>
+</element>
+
+</schema>
