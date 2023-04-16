@@ -6,13 +6,16 @@ docker run --name mysql-comms-8 -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=welcome1 
 
 #testing - 1504
 
-docker run --net mysoanet -h soadb12201 -d -it --name cd ../co	 -p 1521:1521 -v C:\deepak\soa_projects_containers\shared\oracledb:/opt/oracle/oradata oracle/database:12.2.0.1-ee
+C:\deepak\codes\github\docker-images\OracleDatabase\SingleInstance\dockerfiles\12.2.0.1
+docker build --build-arg DB_EDITION=ee -t oracle/database:12.2.0.1-ee .
+
+docker run --net mysoanet -h soadb12201 -d -it --name soadb12201 -p 1521:1521 -v C:\deepak\soa_projects_containers\shared\oracledb:/opt/oracle/oradata oracle/database:12.2.0.1-ee
 docker exec -ti devdomain-db ./setPassword.sh welcome1
 
 ------------
 docker run --net mysoanet -h soa12214 --name soa-dev-env -ti --env DISPLAY=host.docker.internal:0.0 -v C:\deepak\soa_projects_containers\shared\oraclesoa:/mnt/host soaquickstart:12.2.1.4
 
-
+docker run --net mysoanet -h bpm12214 --name bpm-dev-env -ti --env DISPLAY=host.docker.internal:0.0 -v C:\deepak\soa_projects_containers\shared\oraclebpm:/mnt/host bpmquickstart:12.2.1.4
 ------------
 docker run --rm -ti --network mysoanet --env DISPLAY=host.docker.internal:0.0 -v C:\deepak\user_projects:/u01/oracle/user_projects soaquickstart:12.2.1.4 oracle_common/common/bin/config.sh
 
@@ -31,7 +34,9 @@ docker run --name devdomain-soa_server1 -ti -d -p 7004:7004 --network mysoanet -
 
 #jenkins
 
-docker run --name jenkins-260 -d -p 8080:8080 -p 50000:50000 --restart=on-failure -v jenkins_home:/op/jenkins_home jenkins/jenkins:lts-jdk11
+docker run --name jenkins-260 -d -p 8080:8080 -p 50000:50000 --restart=on-failure -v C:\deepak\soa_projects_containers\shared\jenkins:/op/jenkins_home jenkins/jenkins:lts-jdk11
+
+docker exec -it -u root jenkins-260 /bin/bash
 
 
 
@@ -39,3 +44,8 @@ docker run --name jenkins-260 -d -p 8080:8080 -p 50000:50000 --restart=on-failur
 curl --silent --output docker-compose.yml https://raw.githubusercontent.com/confluentinc/cp-all-in-one/7.3.3-post/cp-all-in-one/docker-compose.yml
 
 docker-compose up -d
+----------------------------------------------------
+#mule
+
+docker build -t mule -f Dockerfile .
+docker run -d -i -p 8092:8092 -t mule
