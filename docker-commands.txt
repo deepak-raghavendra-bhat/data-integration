@@ -10,9 +10,19 @@ C:\deepak\codes\github\docker-images\OracleDatabase\SingleInstance\dockerfiles\1
 docker build --build-arg DB_EDITION=ee -t oracle/database:12.2.0.1-ee .
 
 docker run --net mysoanet -h soadb12201 -d -it --name soadb12201 -p 1521:1521 -v C:\deepak\soa_projects_containers\shared\oracledb:/opt/oracle/oradata oracle/database:12.2.0.1-ee
-docker exec -ti devdomain-db ./setPassword.sh welcome1
+docker exec -ti soadb12201 ./setPassword.sh welcome1
 
 ------------
+cd ../OracleJava/java-8
+$ docker build -t oracle/serverjre:8 .
+
+cd dockerfiles/12.2.1.4
+$ docker build -t soaquickstart:12.2.1.4 .
+
+docker run -it --rm --network mysoanet --env DISPLAY=host.docker.internal:0.0 soaquickstart:12.2.1.4 oracle_common/bin/rcu
+
+-------------------
+
 docker run --net mysoanet -h soa12214 --name soa-dev-env -ti --env DISPLAY=host.docker.internal:0.0 -v C:\deepak\soa_projects_containers\shared\oraclesoa:/mnt/host soaquickstart:12.2.1.4
 
 docker run --net mysoanet -h bpm12214 --name bpm-dev-env -ti --env DISPLAY=host.docker.internal:0.0 -v C:\deepak\soa_projects_containers\shared\oraclebpm:/mnt/host bpmquickstart:12.2.1.4
