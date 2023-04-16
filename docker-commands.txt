@@ -59,3 +59,10 @@ docker-compose up -d
 
 docker build -t mule -f Dockerfile .
 docker run -d -i -p 8092:8092 -t mule
+
+-----------------------------------------------------
+
+# mongodb
+
+
+docker container run -d -h mongodb --name mongodb --net mysoanet -p 27017:27017 -v C:\deepak\soa_projects_containers\shared\mongodb:/data/db mongo
